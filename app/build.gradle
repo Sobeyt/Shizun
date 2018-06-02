@@ -27,4 +27,15 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    //Bindings for UI to controller
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    //Inputs Effect (spiners)
+    implementation 'com.satsuware.lib:usefulviews:2.3.6'
+    //Loader
+    implementation 'com.kaopiz:kprogresshud:1.1.0'
+    //Validator Recipies
+    implementation 'com.mobsandgeeks:android-saripaar:2.0.3'
+    //Links
+//    implementation 'me.saket:better-link-movement-method:2.2.0'
 }
