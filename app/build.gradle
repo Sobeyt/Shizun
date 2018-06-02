@@ -36,6 +36,9 @@ dependencies {
     implementation 'com.kaopiz:kprogresshud:1.1.0'
     //Validator Recipies
     implementation 'com.mobsandgeeks:android-saripaar:2.0.3'
+    // DataBase manager
+    implementation 'com.github.satyan:sugar:1.5'
+
     //Links
 //    implementation 'me.saket:better-link-movement-method:2.2.0'
 }

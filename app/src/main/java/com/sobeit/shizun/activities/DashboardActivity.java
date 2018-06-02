@@ -1,5 +1,7 @@
 package com.sobeit.shizun.activities;
 
+import android.app.Fragment;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -11,25 +13,43 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.sobeit.shizun.R;
+import com.sobeit.shizun.fragments.DashFragment;
+import com.sobeit.shizun.helpers.ActivityHelper;
+import com.sobeit.shizun.helpers.FragmentHelper;
+
+import butterknife.ButterKnife;
 
 public class DashboardActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    public Fragment currentFragment;
+    DashboardActivity mainActivity;
+    NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+        ButterKnife.bind(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setBackgroundColor(Color.TRANSPARENT);
+        ActivityHelper.configDefaultActionBar(this);
         setSupportActionBar(toolbar);
+        mainActivity = this;
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
+        drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        chancgeCurrentFragment(DashFragment.newInstance(this, true));
+        FragmentHelper.addFragment(this, currentFragment, R.id.fl_main_panel);
     }
 
     @Override
@@ -66,5 +86,14 @@ public class DashboardActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void chancgeCurrentFragment(Fragment fragment){
+        this.currentFragment = fragment;
+        if(currentFragment != null) {
+            if (currentFragment instanceof DashFragment) {
+
+            }
+        }
     }
 }

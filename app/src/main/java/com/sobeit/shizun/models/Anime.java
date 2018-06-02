@@ -1,5 +1,7 @@
 package com.sobeit.shizun.models;
 
+import com.orm.SugarRecord;
+
 /**
  * Created on 02/junio/18.
  * Created by Ullysses
@@ -8,5 +10,5 @@ package com.sobeit.shizun.models;
  * @email ullydetei@gmail.com
  */
 
-public class Anime {
+public class Anime extends SugarRecord{
 }
